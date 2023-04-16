@@ -1,0 +1,38 @@
+﻿@page
+@model WebApplicationProject.Pages.FilterItem.IndexModel
+@{
+}
+
+<br />
+<h2>List of Item After Filter</h2>
+<form method="get">
+    <select name="sortOrder">
+        <option value="">Select option for filter: </option>
+        <option value="1">Best Seller (Highest to Lowest)</option>
+        <option value="2">Lowest Seller (Lowest to Highest)</option>
+        <option value="3">High Sold (>=5 sold items)</option>
+        <option value="4">Low Sold (lower 5 sold items)</option>
+    </select>
+    <input type="submit" value="Filter" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Quantity</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listItems1)
+        {
+            <tr>
+                <td>@item.ItemID</td>
+                <td>@item.ItemName</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    </tbody>
+
+</table>

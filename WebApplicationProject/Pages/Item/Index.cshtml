@@ -1,0 +1,27 @@
+﻿@page
+@model WebApplicationProject.Pages.Item.IndexModel
+@{
+}
+
+<br />
+<h2>List of Item</h2>
+<a class='btn btn-primary btn-sm' href ="/Item/Create">New Item</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Size</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listItems)
+        {
+            <tr>
+                <td>@item.ItemID</td>
+                <td>@item.ItemName</td>
+                <td>@item.Size</td>
+            </tr>
+        }
+    </tbody>
+</table>

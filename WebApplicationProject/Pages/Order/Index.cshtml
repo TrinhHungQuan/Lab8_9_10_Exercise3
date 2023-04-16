@@ -1,0 +1,50 @@
+﻿@page
+@model WebApplicationProject.Pages.Order.IndexModel
+@{
+}
+
+<br>
+<h2>List of Orders</h2>
+<form method="get">
+    <select name="orderID">
+        @foreach (var orderIDInfo in Model.listOrderID)
+        {
+            <option value="@orderIDInfo.OrderID">@orderIDInfo.OrderID</option>
+        }
+    </select>
+    <br> <br /> 
+   
+    <input type="submit" value="Show" class="btn btn-primary" />
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Order ID</th>
+            <th>Item ID</th>
+            <th>Quantity</th>
+            <th>Unit Amount</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var order in Model.listOrder)
+        {
+            <tr>
+                <td>@order.ID</td>
+                <td>@order.OrderID</td>
+                <td>@order.ItemID</td>
+                <td>@order.Quantity</td>
+                <td>@order.UnitAmount</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<input value='Print' type='button' onclick='handlePrint()' class="btn btn-outline-primary" />
+<script type="text/javascript">
+    const handlePrint = () => {
+        var actContents = document.body.innerHTML;
+        document.body.innerHTML = actContents;
+        window.print();
+    }
+</script>

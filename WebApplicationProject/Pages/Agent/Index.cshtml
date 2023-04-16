@@ -1,0 +1,27 @@
+﻿@page
+@model WebApplicationProject.Pages.Agent.IndexModel
+@{
+}
+
+<br>
+<h2>List of Agents</h2>
+<a class="btn btn-primary btn-sm" href="/Agent/Create">New Agent</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Agent ID</th>
+            <th>Agent Name</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var agent in Model.listAgent)
+        {
+            <tr>
+                <td>@agent.AgentID</td>
+                <td>@agent.AgentName</td>
+                <td>@agent.Address</td>
+            </tr>
+        }
+    </tbody>
+</table>
